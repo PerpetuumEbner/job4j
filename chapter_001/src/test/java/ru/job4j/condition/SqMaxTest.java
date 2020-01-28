@@ -28,4 +28,10 @@ public class SqMaxTest {
         int result = SqMax.max(1, 2, 4,3);
         assertThat(result, Is.is(4));
     }
+
+    @Test
+    public void max5() {
+        int result = SqMax.max(6, 4, 7,5);
+        assertThat(result, Is.is(7));
+    }
 }
