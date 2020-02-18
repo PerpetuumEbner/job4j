@@ -20,7 +20,6 @@ public class FindLoop {
                 break;
             }
         }
-
         return rst;
     }
 }

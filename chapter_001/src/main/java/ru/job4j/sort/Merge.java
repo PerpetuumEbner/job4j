@@ -9,7 +9,6 @@ public class Merge {
         int leftIndex = 0;
         int rightIndex = 0;
         int rslIndex = 0;
-
         while (leftIndex < left.length && rightIndex < right.length) {
             if (left[leftIndex] < right[rightIndex]) {
                 rsl[rslIndex] = left[leftIndex];
@@ -21,19 +20,16 @@ public class Merge {
 
             rslIndex++;
         }
-
         while (leftIndex < left.length) {
             rsl[rslIndex] = left[leftIndex];
             leftIndex++;
             rslIndex++;
         }
-
         while (rightIndex < right.length) {
             rsl[rslIndex] = right[rightIndex];
             rightIndex++;
             rslIndex++;
         }
-
         return rsl;
     }
 

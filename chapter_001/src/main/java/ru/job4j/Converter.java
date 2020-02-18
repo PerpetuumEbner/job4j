@@ -21,7 +21,6 @@ public class Converter {
     public static void main(String[] args) {
         int euro = rubleToEuro(140);
         System.out.print("140 rubles are " + euro + " euro.");
-
         int inFirst = 140;
         int expectedFirst = 2;
         int outFirst = rubleToEuro(inFirst);

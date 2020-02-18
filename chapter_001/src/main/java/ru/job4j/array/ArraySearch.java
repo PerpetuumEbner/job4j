@@ -2,9 +2,9 @@ package ru.job4j.array;
 
 public class ArraySearch {
     public static void searchSameVariables(int[] arrayOne, int[] arrayTwo) {
-        for (int i = 0; i < arrayOne.length; i++) {
-            if (arrayOne[i] == arrayTwo[i]) {
-                System.out.println(arrayOne[i]);
+        for (int index = 0; index < arrayOne.length; index++) {
+            if (arrayOne[index] == arrayTwo[index]) {
+                System.out.println(arrayOne[index]);
             }
         }
     }
