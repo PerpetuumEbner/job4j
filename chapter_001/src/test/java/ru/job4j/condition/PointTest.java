@@ -1,40 +1,32 @@
 package ru.job4j.condition;
 
-import org.junit.Assert;
 import org.junit.Test;
-import ru.job4j.Point;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 public class PointTest {
     @Test
     public void distance() {
-        int x1 = 0;
-        int x2 = 2;
-        int y1 = 0;
-        int y2 = 0;
-        int expected = 2;
-        int out = (int) Point.distance(x1, y1, x2, y2);
-        Assert.assertEquals(expected, out);
+        Point a = new Point(0, 0);
+        Point b = new Point(0, 2);
+        double dist = a.distance(b);
+        assertThat(dist, is(2.0));
     }
 
     @Test
     public void distanceSecond() {
-        int x1 = 6;
-        int x2 = 4;
-        int y1 = 5;
-        int y2 = 3;
-        int expected = 2;
-        int out = (int) Point.distance(x1, y1, x2, y2);
-        Assert.assertEquals(expected, out);
+        Point a = new Point(1, 1);
+        Point b = new Point(0, 2);
+        double dist = a.distance(b);
+        assertThat(dist, is(1.4142135623730951));
     }
 
     @Test
     public void distanceThird() {
-        int x1 = 10;
-        int x2 = 15;
-        int y1 = 6;
-        int y2 = 20;
-        int expected = 14;
-        int out = (int) Point.distance(x1, y1, x2, y2);
-        Assert.assertEquals(expected, out);
+        Point a = new Point(1, 0);
+        Point b = new Point(2, 3);
+        double dist = a.distance(b);
+        assertThat(dist, is(3.1622776601683795));
     }
 }
