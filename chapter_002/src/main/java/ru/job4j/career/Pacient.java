@@ -1,6 +1,6 @@
 package ru.job4j.career;
 
 public class Pacient {
-    String name;
-    int age;
+    private String name;
+    private int age;
 }

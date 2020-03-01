@@ -1,6 +1,6 @@
 package ru.job4j.career;
 
 public class Customer {
-    String name;
-    int cash;
+    private String name;
+    private int cash;
 }

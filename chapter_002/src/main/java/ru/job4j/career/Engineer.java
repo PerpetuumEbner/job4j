@@ -2,8 +2,8 @@ package ru.job4j.career;
 
 public class Engineer extends Profession {
     private String project;
-    public int time;
-    public String team;
+    private int time;
+    private String team;
 
     public Engineer() {
         this.project = project;

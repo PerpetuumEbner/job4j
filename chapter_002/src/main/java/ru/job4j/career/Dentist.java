@@ -1,8 +1,8 @@
 package ru.job4j.career;
 
 public class Dentist extends Doctor {
-    public String curettes;
-    public String drillingMachine;
+    private String curettes;
+    private String drillingMachine;
 
     public Dentist() {
         this.curettes = curettes;

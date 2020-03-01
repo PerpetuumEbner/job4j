@@ -1,7 +1,7 @@
 package ru.job4j.career;
 
 public class Builder extends Engineer {
-    public String buildingMaterials;
+    private String buildingMaterials;
 
     public Builder() {
         this.buildingMaterials = buildingMaterials;
