@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Tracker {
-    private Item[] items = new Item[100];
+    private final Item[] items = new Item[100];
     private int position = 0;
 
     public Item add(Item item) {
@@ -19,43 +19,31 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] itemsWithoutNull = new Item[items.length];
-        int size = 0;
-        for (int index = 0; index < items.length; index++) {
-            Item item = items[index];
-            if (item != null) {
-                itemsWithoutNull[size] = item;
-                size++;
-            }
-        }
-        return Arrays.copyOf(itemsWithoutNull, size);
+        return Arrays.copyOf(items, position);
     }
 
     public Item[] findByName(String key) {
-        Item[] itemsByName = new Item[items.length];
+        Item[] itemsByName = new Item[position];
         int size = 0;
-        for (int index = 0; index < items.length; index++) {
+        for (int index = 0; index < position; index++) {
             Item item = items[index];
-            if (item != null) {
-                if (item.getName().equals(key)) {
-                    itemsByName[size] = item;
-                    size++;
-                }
+            if (item.getName().equals(key)) {
+                itemsByName[size] = item;
+                size++;
             }
         }
         return Arrays.copyOf(itemsByName, size);
     }
 
     public Item findById(String id) {
-        Item itemfindById = null;
-        for (int index = 0; index < items.length; index++) {
+        Item itemFindById = null;
+        for (int index = 0; index < position; index++) {
             Item item = items[index];
-            if (item != null) {
-                if (item.getId().equals(id)) {
-                    itemfindById = item;
-                } else return null;
+            if (item.getId().equals(id)) {
+                itemFindById = item;
+                break;
             }
         }
-        return itemfindById;
+        return itemFindById;
     }
 }
