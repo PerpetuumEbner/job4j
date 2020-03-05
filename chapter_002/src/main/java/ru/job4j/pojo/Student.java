@@ -5,7 +5,7 @@ public class Student {
     private String name;
     private String patronymic;
     private int groupNumber;
-    private int date;
+    private String date;
 
     public String getSurname() {
         return surname;
@@ -39,11 +39,11 @@ public class Student {
         this.groupNumber = groupNumber;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }
