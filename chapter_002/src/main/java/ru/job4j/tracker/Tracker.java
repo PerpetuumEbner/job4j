@@ -52,10 +52,14 @@ public class Tracker {
     }
 
     public boolean replace(String id, Item item) {
+        boolean rls = false;
         int index = indexOf(id);
-        item.setId(id);
-        items[index] = item;
-        return index != -1 ? true : false;
+        if (index != 1) {
+            item.setId(id);
+            items[index] = item;
+            rls = true;
+        }
+        return rls;
     }
 
     public boolean delete(String id) {
