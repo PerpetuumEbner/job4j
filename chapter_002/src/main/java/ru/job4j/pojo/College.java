@@ -9,6 +9,6 @@ public class College {
         student.setGroupNumber(8);
         student.setDate("01.01.2020");
 
-        System.out.println("Студент " + student.getSurname() + " " + student.getName() + " " + student.getSurname() + " послупил в группу № " + student.getGroupNumber() + " " + student.getDate() + ".");
+        System.out.println(String.format("Студент %s %s %s поступил в группу %s %s.", student.getName(), student.getName(), student.getPatronymic(), student.getGroupNumber(), student.getDate()));
     }
 }
