@@ -1,6 +1,6 @@
 package ru.job4j.oop;
 
-public class Student {
+public class Student extends Object {
     public void music() {
         for (int index = 0; index < 3; index++) {
             System.out.println("Tra tra tra");
