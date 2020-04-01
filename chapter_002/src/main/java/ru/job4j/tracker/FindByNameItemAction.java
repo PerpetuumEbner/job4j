@@ -12,6 +12,6 @@ public class FindByNameItemAction implements UserAction {
         for (Item item : tracker.findByName(name)) {
             System.out.println(item);
         }
-        return true;
+        return false;
     }
 }

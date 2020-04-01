@@ -20,7 +20,7 @@ public class FindAllActionExecuteTest {
         tracker.add(item);
         FindAllAction action = new FindAllAction();
         action.execute(new StubInput(new String[]{}), tracker);
-        String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator() + System.lineSeparator())
+        String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add(item.getId() + " " + item.getName())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
