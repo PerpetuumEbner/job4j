@@ -7,7 +7,6 @@ public class FindEl {
             if (value[index].equals(key)) {
                 System.out.println("Found!");
                 rsl = index;
-                System.out.println(rsl);
                 break;
             }
         }
@@ -19,7 +18,7 @@ public class FindEl {
 
     public static void main(String[] args) {
         try {
-            indexOf(new String[]{"element1", "element2", "element3", "element4"}, "element2");
+            System.out.println(indexOf(new String[]{"element1", "element2", "element3", "element4"}, "element2"));
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
