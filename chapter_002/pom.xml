@@ -13,20 +13,11 @@
         <maven.compiler.target>13</maven.compiler.target>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <parent>
+        <artifactId>job4j</artifactId>
+        <groupId>ru.job4j</groupId>
+        <version>3.0</version>
+    </parent>
 
     <build>
         <plugins>
