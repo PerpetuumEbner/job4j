@@ -14,8 +14,7 @@ public class ValidateInputTest {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         PrintStream printStream = System.out;
         System.setOut(new PrintStream(byteArrayOutputStream));
-        String[] data = {"one", "1"};
-        ValidateInput input = new ValidateStubInput(data);
+        ValidateInput input = new ValidateInput(new StubInput(new String[] {"one", "1"}));
         input.askInt("Enter");
         assertThat(
                 byteArrayOutputStream.toString(),
@@ -29,9 +28,8 @@ public class ValidateInputTest {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         PrintStream printStream = System.out;
         System.setOut(new PrintStream(byteArrayOutputStream));
-        String[] data = {"5", "1"};
-        ValidateInput input = new ValidateStubInput(data);
-        input.askInt("Enter", data.length);
+        ValidateInput input = new ValidateInput(new StubInput(new String[] {"5", "1"}));
+        input.askInt("Enter", 5);
         assertThat(
                 byteArrayOutputStream.toString(),
                 is(String.format("Please select key from menu.%n"))
