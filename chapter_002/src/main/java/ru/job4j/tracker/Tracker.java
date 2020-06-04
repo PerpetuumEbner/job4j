@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class Tracker {
     private final List<Item> items = new ArrayList<>();
-    private int position = 0;
 
     public Item add(Item item) {
         item.setId(generateId());
@@ -40,10 +39,9 @@ public class Tracker {
 
     private int indexOf(String id) {
         int rsl = -1;
-        for (Item item : items) {
-            if (item.getId().equals(id)) {
-                rsl = items.indexOf(item);
-                break;
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId().equals(id)) {
+                rsl = index;
             }
         }
         return rsl;
