@@ -14,10 +14,10 @@ public class UniqueText {
         }
 
         for (String string : text) {
-            if (check.contains(string)) {
-                rsl = true;
-            } else rsl = false;
-            break;
+            if (!check.contains(string)) {
+                rsl = false;
+                break;
+            }
         }
         return rsl;
     }
