@@ -10,17 +10,33 @@ import static org.junit.Assert.assertThat;
 public class ItemSorterTest {
     @Test
     public void sortedComparable() {
-        List<Item> items = Arrays.asList(
+        List<Item> item = Arrays.asList(
                 new Item("Шилдт"),
                 new Item("Хостманн"),
                 new Item("Бейтс")
         );
-        new ItemSorter().sortComparable(items);
+        new ItemSorter().sortComparable(item);
         List<Item> expected = Arrays.asList(
                 new Item("Бейтс"),
                 new Item("Хостманн"),
                 new Item("Шилдт")
         );
-        assertThat(items, is(expected));
+        assertThat(item, is(expected));
+    }
+
+    @Test
+    public void sortComparator() {
+        List<Item> item = Arrays.asList(
+                new Item("Бейтс"),
+                new Item("Хостманн"),
+                new Item("Шилдт")
+        );
+        new ItemSorter().sortComparator(item);
+        List<Item> expected = Arrays.asList(
+                new Item("Шилдт"),
+                new Item("Хостманн"),
+                new Item("Бейтс")
+        );
+        assertThat(item, is(expected));
     }
 }
