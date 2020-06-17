@@ -14,7 +14,9 @@ public class ReplaceItemAction implements UserAction {
         tracker.replace(id, item);
         if (tracker.replace(id, item)) {
             System.out.println("successfully");
-        } else System.out.println("error");
+        } else {
+            System.out.println("error");
+        }
         return true;
     }
 }

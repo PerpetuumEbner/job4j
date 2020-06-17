@@ -42,11 +42,15 @@ public class Matches {
                             variable = false;
                         }
                     }
-                } else break;
+                } else {
+                    break;
+                }
             }
         }
         if (winner == 1) {
             System.out.println("Выиграл игрок №1!");
-        } else System.out.println("Выиграл игрок № 2!");
+        } else {
+            System.out.println("Выиграл игрок № 2!");
+        }
     }
 }

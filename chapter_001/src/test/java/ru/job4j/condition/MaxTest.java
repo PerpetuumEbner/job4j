@@ -14,13 +14,13 @@ public class MaxTest {
 
     @Test
     public void whenMaxThreeVariables() {
-        int result = Max.max(2, 1,3);
+        int result = Max.max(2, 1, 3);
         assertThat(result, is(3));
     }
 
     @Test
     public void whenMaxFourVariables() {
-        int result = Max.max(4, 2, 1,3);
+        int result = Max.max(4, 2, 1, 3);
         assertThat(result, is(4));
     }
 }
