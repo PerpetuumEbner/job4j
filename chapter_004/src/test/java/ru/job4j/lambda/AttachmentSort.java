@@ -22,13 +22,13 @@ public class AttachmentSort {
         attachments.sort(comparatorSize);
         System.out.println(attachments);
 
-        Comparator<Attachment> comparatorName = new Comparator<Attachment>() {
-            @Override
-            public int compare(Attachment left, Attachment right) {
-                return left.getName().compareTo(right.getName());
-            }
-        };
+        Comparator<Attachment> comparatorName = (left, right) -> left.getName().compareTo(right.getName());
         attachments.sort(comparatorName);
         System.out.println(attachments);
+
+        Comparator <Attachment> comparatorSizeDec = (right, left) ->  right.getSize() - left.getSize();
+        attachments.sort(comparatorSizeDec);
+        System.out.println(attachments);
+
     }
 }
