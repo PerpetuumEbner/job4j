@@ -26,7 +26,7 @@ public class AttachmentSort {
         attachments.sort(comparatorName);
         System.out.println(attachments);
 
-        Comparator <Attachment> comparatorSizeDec = (right, left) ->  right.getSize() - left.getSize();
+        Comparator<Attachment> comparatorSizeDec = (right, left) -> right.getSize() - left.getSize();
         attachments.sort(comparatorSizeDec);
         System.out.println(attachments);
 
