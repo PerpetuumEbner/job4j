@@ -26,7 +26,7 @@ public class FunctionRangeTest {
     @Test
     public void whenExponentialFunctionThenExponentialResults() {
         List<Double> result = FunctionRange.diapason(1, 5, x -> Math.pow(x, x));
-        List<Double> expected = Arrays.asList(10D, 12D, 14D);
+        List<Double> expected = Arrays.asList(1D, 4D, 27D, 256D);
         assertThat(result, is(expected));
     }
 }
