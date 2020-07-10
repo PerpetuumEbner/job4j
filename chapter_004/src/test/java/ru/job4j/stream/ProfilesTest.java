@@ -3,7 +3,9 @@ package ru.job4j.stream;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -31,5 +33,26 @@ public class ProfilesTest {
         address.add(address4);
 
         assertThat(profile.collect(profiles), is(address));
+    }
+
+    @Test
+    public void whenThereNoRepeatingElements() {
+        List<Address> address = Arrays.asList(
+                new Address("City17", "Street3", 3, 58),
+                new Address("City15", "Street2", 2, 75),
+                new Address("City13", "Street1", 1, 12),
+                new Address("City19", "Street4", 4, 65),
+                new Address("City17", "Street3", 3, 47));
+
+        List<Profile> profiles = address.stream().map(Profile::new).collect(Collectors.toList());
+        List<Address> result = new Profiles().removeDup(profiles);
+
+        List<Address> expected = Arrays.asList(
+                new Address("City13", "Street1", 1, 12),
+                new Address("City15", "Street2", 2, 75),
+                new Address("City17", "Street3", 3, 58),
+                new Address("City19", "Street4", 4, 65));
+
+        assertThat(expected, is(result));
     }
 }
