@@ -42,7 +42,7 @@ public class ProfilesTest {
                 new Address("City15", "Street2", 2, 75),
                 new Address("City13", "Street1", 1, 12),
                 new Address("City19", "Street4", 4, 65),
-                new Address("City17", "Street3", 3, 47));
+                new Address("City17", "Street3", 3, 58));
 
         List<Profile> profiles = address.stream().map(Profile::new).collect(Collectors.toList());
         List<Address> result = new Profiles().removeDup(profiles);
