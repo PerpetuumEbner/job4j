@@ -37,7 +37,7 @@ public class ProfilesTest {
 
     @Test
     public void whenThereNoRepeatingElements() {
-        List<Address> address = Arrays.asList(
+        List<Address> address = List.of(
                 new Address("City17", "Street3", 3, 58),
                 new Address("City15", "Street2", 2, 75),
                 new Address("City13", "Street1", 1, 12),
@@ -47,7 +47,7 @@ public class ProfilesTest {
         List<Profile> profiles = address.stream().map(Profile::new).collect(Collectors.toList());
         List<Address> result = new Profiles().removeDup(profiles);
 
-        List<Address> expected = Arrays.asList(
+        List<Address> expected = List.of(
                 new Address("City13", "Street1", 1, 12),
                 new Address("City15", "Street2", 2, 75),
                 new Address("City17", "Street3", 3, 58),

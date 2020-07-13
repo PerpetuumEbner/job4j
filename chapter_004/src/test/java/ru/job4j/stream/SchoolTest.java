@@ -15,7 +15,7 @@ public class SchoolTest {
 
     @Test
     public void whenStudentHasZeroTo50Points() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student("Антон", 64),
                 new Student("Владимир", 15),
                 new Student("Светлана", 84),
@@ -25,7 +25,7 @@ public class SchoolTest {
 
         List<Student> expected = students.stream().filter(student -> student.getScore() >= 0 && student.getScore() < 50).collect(Collectors.toList());
 
-        List<Student> result = Arrays.asList(
+        List<Student> result = List.of(
                 new Student("Владимир", 15),
                 new Student("Василий", 6));
 
@@ -34,7 +34,7 @@ public class SchoolTest {
 
     @Test
     public void whenStudentHas50To70Points() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student("Антон", 64),
                 new Student("Владимир", 15),
                 new Student("Светлана", 84),
@@ -44,7 +44,7 @@ public class SchoolTest {
 
         List<Student> expected = students.stream().filter(student -> student.getScore() >= 50 && student.getScore() < 70).collect(Collectors.toList());
 
-        List<Student> result = Arrays.asList(
+        List<Student> result = List.of(
                 new Student("Антон", 64),
                 new Student("Мария", 57));
 
@@ -53,7 +53,7 @@ public class SchoolTest {
 
     @Test
     public void whenStudentHas70To100Points() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student("Антон", 64),
                 new Student("Владимир", 15),
                 new Student("Светлана", 84),
@@ -63,7 +63,7 @@ public class SchoolTest {
 
         List<Student> expected = students.stream().filter(student -> student.getScore() > 70 && student.getScore() <= 100).collect(Collectors.toList());
 
-        List<Student> result = Arrays.asList(
+        List<Student> result = List.of(
 
                 new Student("Светлана", 84),
                 new Student("Владислав", 95));
@@ -73,7 +73,7 @@ public class SchoolTest {
 
     @Test
     public void whenConvertListToMap() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student("Антон", 64),
                 new Student("Владимир", 15),
                 new Student("Светлана", 84),
@@ -96,7 +96,7 @@ public class SchoolTest {
 
     @Test
     public void whenThereAreDuplicatesInTheList() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student("Антон", 64),
                 new Student("Владимир", 15),
                 new Student("Светлана", 84),
