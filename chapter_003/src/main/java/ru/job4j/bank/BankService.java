@@ -12,21 +12,21 @@ public class BankService {
     public void addAccount(String passport, Account account) {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
-            if (!users.get(user).contains(account)) {
-                users.get(user).add(account);
+            if (!users.get(user.get()).contains(account)) {
+                users.get(user.get()).add(account);
             }
         }
     }
 
     public Optional<User> findByPassport(String passport) {
-        return Optional.of(users.keySet().stream().filter(user -> user.getPassport().equals(passport)).findFirst().orElse(null));
+        return users.keySet().stream().filter(user -> user.getPassport().equals(passport)).findFirst();
     }
 
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
         Optional<Account> userRequisite = Optional.empty();
         if (user.isPresent()) {
-            userRequisite = Optional.of(users.get(user).stream().filter(account -> account.getRequisite().equals(requisite)).findFirst().orElse(null));
+            userRequisite = users.get(user.get()).stream().filter(account -> account.getRequisite().equals(requisite)).findFirst();
         }
         return userRequisite;
     }
