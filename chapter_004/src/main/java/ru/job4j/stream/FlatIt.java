@@ -7,8 +7,8 @@ import java.util.stream.Stream;
 
 public class FlatIt {
     public static List<Integer> flatten(Iterator<Iterator<Integer>> iterator) {
-        return Stream.iterate(iterator, x -> iterator.hasNext(), x -> x)
-                .flatMap(it -> Stream.iterate(iterator, x -> iterator.hasNext(), x -> x))
+        return Stream.iterate(iterator, Iterator::hasNext, x -> x)
+                .flatMap(it -> Stream.iterate(iterator.next(), Iterator::hasNext, x -> x))
                 .map(Iterator::next)
                 .collect(Collectors.toList());
     }
