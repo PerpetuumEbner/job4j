@@ -15,7 +15,7 @@ public class FindAllActionExecuteTest {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintStream printStream = System.out;
         System.setOut(new PrintStream(out));
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item item = new Item("Name test");
         tracker.add(item);
         FindAllAction action = new FindAllAction();

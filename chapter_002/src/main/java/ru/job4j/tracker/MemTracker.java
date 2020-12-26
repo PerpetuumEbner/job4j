@@ -4,8 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Tracker {
+public class MemTracker implements Store {
     private final List<Item> items = new ArrayList<>();
+
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void close() throws Exception {
+
+    }
 
     public Item add(Item item) {
         item.setId(generateId());
