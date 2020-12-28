@@ -42,9 +42,13 @@ public class SqlTracker implements Store {
     @Override
     public Item add(Item item) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-                "INSERT INTO tracker.public.items VALUES (?)")) {
+                "INSERT INTO tracker.public.items VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, item.getName());
             preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            if (resultSet != null && resultSet.next()) {
+                item.setId(resultSet.getString(1));
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -109,7 +113,7 @@ public class SqlTracker implements Store {
             preparedStatement.setString(1, key);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                list.add(new Item("id", "name"));
+                list.add(new Item("" + resultSet.getInt("id"), resultSet.getString("name")));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -126,7 +130,7 @@ public class SqlTracker implements Store {
             preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                item = new Item("id", "name");
+                item = new Item("" + resultSet.getInt("id"), resultSet.getString("name"));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
