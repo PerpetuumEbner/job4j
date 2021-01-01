@@ -42,7 +42,7 @@ public class SqlTracker implements Store {
     @Override
     public Item add(Item item) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-                "INSERT INTO tracker.public.items VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
+                "INSERT INTO tracker.public.items (name) VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, item.getName());
             preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -61,7 +61,7 @@ public class SqlTracker implements Store {
         try (PreparedStatement preparedStatement = connection.prepareStatement(
                 "UPDATE tracker.public.items SET name = ? WHERE id = ?")) {
             preparedStatement.setString(1, item.getName());
-            preparedStatement.setString(2, id);
+            preparedStatement.setInt(2, Integer.parseInt(id));
             preparedStatement.executeUpdate();
             if (preparedStatement.executeUpdate() != 0) {
                 result = true;
@@ -78,7 +78,7 @@ public class SqlTracker implements Store {
         boolean result = false;
         try (PreparedStatement preparedStatement = connection.prepareStatement(
                 "DELETE FROM tracker.public.items WHERE id = ?")) {
-            preparedStatement.setString(1, id);
+            preparedStatement.setInt(1, Integer.parseInt(id));
             preparedStatement.executeUpdate();
             if (preparedStatement.executeUpdate() != 0) {
                 result = true;
@@ -127,7 +127,7 @@ public class SqlTracker implements Store {
         Item item = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(
                 "SELECT * FROM tracker.public.items WHERE id = ?")) {
-            preparedStatement.setString(1, id);
+            preparedStatement.setInt(1, Integer.parseInt(id));
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 item = new Item("" + resultSet.getInt("id"), resultSet.getString("name"));

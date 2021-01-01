@@ -40,8 +40,8 @@ public class SqlTrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() throws Exception {
         try (SqlTracker tracker = new SqlTracker(ConnectionRollback.create(this.init()))) {
-            tracker.add(new Item("name"));
-            assertThat(tracker.findById("name"), is(1));
+            final Item item = tracker.add(new Item("name"));
+            assertThat(tracker.findById(item.getId()), is(item));
         }
     }
 
