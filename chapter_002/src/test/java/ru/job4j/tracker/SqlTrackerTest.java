@@ -60,8 +60,8 @@ public class SqlTrackerTest {
     @Test
     public void createItem() throws Exception {
         SqlTracker tracker = new SqlTracker(connection);
-        tracker.add(new Item("name"));
-        assertThat(tracker.findById("name"), is(1));
+        Item item = tracker.add(new Item("name"));
+        assertThat(tracker.findById(item.getId()), is(item));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class SqlTrackerTest {
         Item itemTwo = new Item("id");
         tracker.add(itemTwo);
         List<Item> result = tracker.findAll();
-        assertThat(result.size(), is(148));
+        assertThat(result.size(), is(2));
     }
 
     @Test
