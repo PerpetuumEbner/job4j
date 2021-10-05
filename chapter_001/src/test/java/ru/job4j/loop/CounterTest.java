@@ -8,16 +8,17 @@ import static org.junit.Assert.assertThat;
 public class CounterTest {
 
     @Test
-    public void whenSumEvenNumbersFromOneToTenThenThirty() {
-        int rsl = Counter.sumByEven(1, 10);
-        int expected = 30;
-        assertThat(rsl, is(expected));
+    public void whenStart0Finish10() {
+        assertThat(Counter.sum(0, 10), is(10));
     }
 
     @Test
-    public void whenSumEvenNumbersFromOneToTwentyThenOnehundredten() {
-        int rsl = Counter.sumByEven(1, 20);
-        int expected = 110;
-        assertThat(rsl, is(expected));
+    public void whenStart3Finish8() {
+        assertThat(Counter.sum(3, 8), is(5));
+    }
+
+    @Test
+    public void whenStart1Finish1() {
+        assertThat(Counter.sum(1, 1), is(0));
     }
 }
