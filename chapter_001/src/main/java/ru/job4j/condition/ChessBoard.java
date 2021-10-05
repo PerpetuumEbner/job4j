@@ -8,7 +8,7 @@ public class ChessBoard {
         if (x1 >= 0 && x1 <= 7 && x2 >= 0 && x2 <= 7
                 && y1 >= 0 && y1 <= 7 && y2 >= 0 && y2 <= 7) {
             count = Math.abs(x2 - x1);
-            if (Math.abs(x2 - x1) == count && Math.abs(y2 - y1) == count) {
+            if (Math.abs(y2 - y1) == count) {
                 rsl = count;
             }
         }
