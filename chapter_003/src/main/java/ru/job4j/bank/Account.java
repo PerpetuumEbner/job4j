@@ -2,6 +2,13 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс содержит и возвращает поля баланс и реквизиты.
+ *
+ * @author yustas
+ * @version 1.0
+ */
+
 public class Account {
     private String requisite;
     private double balance;
