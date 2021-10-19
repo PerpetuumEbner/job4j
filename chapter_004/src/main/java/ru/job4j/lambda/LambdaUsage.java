@@ -4,9 +4,9 @@ import java.util.Comparator;
 
 public class LambdaUsage {
     public static void main(String[] args) {
-        Comparator<Attachment> comparatorSizeDec = (right, left) -> {
+        Comparator<Attachment> comparatorSizeDec = (left, right) -> {
             System.out.println("compare - " + left.getSize() + " : " + right.getSize());
-            return left.getSize() - right.getSize();
+            return Integer.compare(right.getSize(), left.getSize());
         };
     }
 }
