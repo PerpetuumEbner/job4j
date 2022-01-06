@@ -58,14 +58,15 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
+        Calculator calculator = new Calculator();
         add(1, 1);
         div(4, 2);
         multiply(2, 1);
         subtract(10, 5);
         System.out.println(sum(5));
         System.out.println(minus(10));
-        System.out.println(new Calculator().divide(13));
-        System.out.println(new Calculator().multi(21));
-        System.out.println(new Calculator().sumAllOperation(3));
+        System.out.println(calculator.divide(13));
+        System.out.println(calculator.multi(21));
+        System.out.println(calculator.sumAllOperation(3));
     }
 }
