@@ -1,15 +1,15 @@
 package ru.job4j.type;
 
 public class Bus implements Vehicle {
-    String nameClass = getClass().getSimpleName();
+    private static final String NAMECLASS = Bus.class.getSimpleName();
 
     @Override
     public void move() {
-        System.out.println(nameClass + " is ride.");
+        System.out.println(NAMECLASS + " is ride.");
     }
 
     @Override
     public void use() {
-        System.out.println(nameClass + " uses diesel.");
+        System.out.println(NAMECLASS + " uses diesel.");
     }
 }
