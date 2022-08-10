@@ -50,14 +50,7 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             int amountSubject = pupil.subjects().size();
             for (int index = 0; index < amountSubject; index++) {
-                String key = pupil.subjects().get(index).name();
-                int value = pupil.subjects().get(index).score();
-                if (map.containsKey(key)) {
-                    int score = map.get(key) + value;
-                    map.put(key, score);
-                } else {
-                    map.put(key, value);
-                }
+                map.merge(pupil.subjects().get(index).name(), pupil.subjects().get(index).score(), Integer::sum);
             }
         }
 
