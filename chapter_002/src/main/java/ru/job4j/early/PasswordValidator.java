@@ -11,12 +11,12 @@ public class PasswordValidator {
         List<String> list = List.of("qwerty", "12345", "password", "admin", "user");
         String passwordLowerCas = password.toLowerCase();
         if (list.contains(passwordLowerCas)) {
-            return "Пароль не должен быть простым.";
+            throw new IllegalArgumentException("Пароль не должен быть простым.");
         }
 
         char[] symbols = password.toCharArray();
         if (password.length() <= 8 || password.length() >= 32) {
-            return "Пароль должен быть от 8 до 32 символов включительно.";
+            throw new IllegalArgumentException("Пароль должен быть от 8 до 32 символов включительно.");
         }
 
         boolean isUpperCase = false;
@@ -40,16 +40,16 @@ public class PasswordValidator {
         }
 
         if (!isUpperCase) {
-            return "Пароль должен содержать символы верхнего регистра.";
+            throw new IllegalArgumentException("Пароль должен содержать символы верхнего регистра.");
         }
         if (!isLowerCase) {
-            return "Пароль должен содержать символы нижнего регистра.";
+            throw new IllegalArgumentException("Пароль должен содержать символы нижнего регистра.");
         }
         if (!isDigit) {
-            return "Пароль должен содержать цифры.";
+            throw new IllegalArgumentException("Пароль должен содержать цифры.");
         }
         if (!isLetterOrDigit) {
-            return "Пароль должен содержать спецсимволы.";
+            throw new IllegalArgumentException("Пароль должен содержать спецсимволы.");
         }
         return "Пароль соответствует требованиям.";
     }

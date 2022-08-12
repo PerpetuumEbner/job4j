@@ -11,42 +11,33 @@ public class PasswordValidatorTest {
         PasswordValidator.validate(null);
     }
 
-    @Test()
+    @Test(expected = IllegalArgumentException.class)
     public void whenPasswordLengthLessThanEightCharacters() {
-        assertThat(PasswordValidator.validate("Xa4|#~C"),
-                is("Пароль должен быть от 8 до 32 символов включительно."));
+        PasswordValidator.validate("Xa4|#~C");
     }
 
-    @Test()
+    @Test(expected = IllegalArgumentException.class)
     public void whenPasswordMustContainUppercaseCharacters() {
-        assertThat(PasswordValidator.validate("|zpwm@2ga}"),
-                is("Пароль должен содержать символы верхнего регистра."));
+        PasswordValidator.validate("|zpwm@2ga}");
     }
 
-    @Test()
+    @Test(expected = IllegalArgumentException.class)
     public void whenPasswordMustContainLowercaseCharacters() {
-        assertThat(PasswordValidator.validate("E4{JEA0~Y"),
-                is("Пароль должен содержать символы нижнего регистра."));
+        PasswordValidator.validate("E4{JEA0~Y");
     }
 
-    @Test()
+    @Test(expected = IllegalArgumentException.class)
     public void whenPasswordMustContainSpecialCharacters() {
-        assertThat(PasswordValidator.validate("eP0yOw0if"),
-                is("Пароль должен содержать спецсимволы."));
+        PasswordValidator.validate("eP0yOw0if");
     }
 
-    @Test()
+    @Test(expected = IllegalArgumentException.class)
     public void whenPasswordNotSimple() {
-        assertThat(PasswordValidator.validate("qwerty"),
-                is("Пароль не должен быть простым."));
-        assertThat(PasswordValidator.validate("12345"),
-                is("Пароль не должен быть простым."));
-        assertThat(PasswordValidator.validate("password"),
-                is("Пароль не должен быть простым."));
-        assertThat(PasswordValidator.validate("admin"),
-                is("Пароль не должен быть простым."));
-        assertThat(PasswordValidator.validate("user"),
-                is("Пароль не должен быть простым."));
+        PasswordValidator.validate("qwerty");
+        PasswordValidator.validate("12345");
+        PasswordValidator.validate("password");
+        PasswordValidator.validate("admin");
+        PasswordValidator.validate("user");
     }
 
     @Test
