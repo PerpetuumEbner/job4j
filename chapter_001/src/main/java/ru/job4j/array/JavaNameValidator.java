@@ -9,14 +9,16 @@ public class JavaNameValidator {
                 || Character.isDigit(arrays[0])) {
             return false;
         }
-        for (char array : arrays) {
+        for (int index = 1; index < arrays.length; index++) {
+            result = false;
+            char array = arrays[index];
             if (isSpecialSymbol(array)
                     || isUpperLatinLetter(array)
                     || isLowerLatinLetter(array)
                     || Character.isDigit(array)) {
                 result = true;
-            } else {
-                result = false;
+            }
+            if (!result) {
                 break;
             }
         }
@@ -33,11 +35,5 @@ public class JavaNameValidator {
 
     public static boolean isLowerLatinLetter(int code) {
         return code >= 97 && code <= 122;
-    }
-
-    public static void main(String[] args) {
-        String name = "Interstellar";
-        isNameValid(name);
-        System.out.println(isLowerLatinLetter(49));
     }
 }
