@@ -19,7 +19,7 @@ public class ReconstructPhrase {
         for (int index = 0; index < size; index++) {
             String string = evenElements.pollFirst().toString();
             if (index % 2 == 0) {
-                result = new StringBuilder(result + string);
+                result.append(string);
             }
         }
         return String.valueOf(result);
@@ -29,7 +29,7 @@ public class ReconstructPhrase {
         int size = descendingElements.size();
         StringBuilder result = new StringBuilder("");
         for (int index = 0; index < size; index++) {
-            result = new StringBuilder(result + descendingElements.pollLast().toString());
+            result.append(descendingElements.pollLast().toString());
         }
         return String.valueOf(result);
     }
